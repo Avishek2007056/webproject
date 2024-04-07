@@ -56,6 +56,8 @@ route::get('/book_details/{id}',[HomeController::class,'book_details']);
 
 route::get('/order_books/{id}',[HomeController::class,'order_books']);
 
+route::get('/order_request',[AuthController::class,'order_request']);
+
 
 
 // 1 line code here

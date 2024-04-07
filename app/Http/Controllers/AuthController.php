@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -226,6 +227,14 @@ class AuthController extends Controller
         $data->save();
         return redirect('/show_book')->with('message','Book Updated Succcessfully');
         
+    }
+
+    public function order_request()
+    {
+
+        $data = Order::all();
+        return view('admin.order_request',compact('data'));
+
     }
 
 
