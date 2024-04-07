@@ -237,7 +237,42 @@ class AuthController extends Controller
 
     }
 
+    public function accept_book($id)
+    {
+        $data = Order::find($id);
+        $status = $data->status;
 
+        if($status == 'accepted')
+        {
+            return redirect()->back();
+        }
+        else 
+        {
+
+            $data->status = 'accepted';
+            $data->save();
+
+            $bookid = $data->book_id;
+            $book = Book::find($bookid);
+            $book_qty = $book->quantity - '1';
+            $book->quantity = $book_qty;
+            $book->save();
+
+
+            return redirect()->back();
+
+        }
+
+        
+    }
+
+    public function rejected_book($id)
+    {
+        $data = Order::find($id);
+        $data->status = 'rejected';
+        $data->save();
+        return redirect()->back();
+    }
 
     
 }

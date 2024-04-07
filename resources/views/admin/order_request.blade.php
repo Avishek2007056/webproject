@@ -49,6 +49,7 @@
                     <th>Quantity</th>
                     <th>Order Status</th>
                     <th>Book Image</th>
+                    <th>Change Status</th>
                 </tr>
 
                 @foreach($data as $data)
@@ -58,9 +59,26 @@
                     <td>{{$data->user->email}}</td>
                     <td>{{$data->book->title}}</td>
                     <td>{{$data->book->quantity}}</td>
-                    <td>{{$data->status}}</td>
+                    <td>
+                      @if($data->status == 'accepted')
+                      <span style="color: green;">{{$data->status}}</span>
+                      @endif
+
+                      @if($data->status == 'rejected')
+                      <span style="color: red;">{{$data->status}}</span>
+                      @endif
+
+                      @if($data->status == 'Applied')
+                      <span style="color: yellow;">{{$data->status}}</span>
+                      @endif
+                    </td>
                     <td>
                         <img style="height: 150px; width: 110px" src="book/{{$data->book->book_img}}">
+                    </td>
+                    <td>
+                      <a class="btn btn-warning" href="{{url('accept_book',$data->id)}}">Accepted</a>
+                      <a class="btn btn-danger" href="{{url('rejected_book',$data->id)}}">Rejected</a>
+                      <!-- <a class="btn btn-info" href="">Returned</a> -->
                     </td>
                 </tr>
 

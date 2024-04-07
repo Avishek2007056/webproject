@@ -58,6 +58,10 @@ route::get('/order_books/{id}',[HomeController::class,'order_books']);
 
 route::get('/order_request',[AuthController::class,'order_request']);
 
+route::get('/accept_book/{id}',[AuthController::class,'accept_book']);
+
+route::get('/rejected_book/{id}',[AuthController::class,'rejected_book']);
+
 
 
 // 1 line code here
