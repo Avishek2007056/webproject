@@ -63,6 +63,20 @@ class HomeController extends Controller
 
     }
 
+    public function book_history()
+    {
+
+        if(Auth::id())
+        {
+            $userid = Auth::user()->id;
+            $data = Order::where('user_id','=',$userid)->get();
+
+            return view('home.book_history',compact('data'));
+        }
+
+
+    }
+
 
 
 

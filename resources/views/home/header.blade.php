@@ -27,13 +27,20 @@
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="explore.html">Explore</a></li>
                         <li><a href="details.html">Item Details</a></li>
-                        <li><a href="author.html">Author</a></li>
+                        
                         <li><a href="create.html">Create Yours</a></li>
 
                         @if (Route::has('login'))
                             <nav class="-mx-3 flex flex-1 justify-end">
                                 @auth
+                                
+                                <li>
+                                    <a href="{{url('book_history')}}">My Order History</a>
+                                </li>
+
+                                <li>
                                 <a href="{{ route('logout') }}" class="text-sm text-gray-700 dark:text-gray-500 underline" style="color: white;">Logout</a>
+                                </li>
 
                                 @else
                                     <li><a href="{{ route('login') }}">Login</a></li>

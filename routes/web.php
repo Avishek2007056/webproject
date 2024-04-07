@@ -62,6 +62,8 @@ route::get('/accept_book/{id}',[AuthController::class,'accept_book']);
 
 route::get('/rejected_book/{id}',[AuthController::class,'rejected_book']);
 
+route::get('/book_history',[HomeController::class,'book_history']);
+
 
 
 // 1 line code here
