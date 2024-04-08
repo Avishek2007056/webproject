@@ -70,6 +70,8 @@ route::get('/explore',[HomeController::class,'explore']);
 
 route::get('/search',[HomeController::class,'search']);
 
+route::get('/cat_search/{id}',[HomeController::class,'cat_search']);
+
 
 
 // 1 line code here

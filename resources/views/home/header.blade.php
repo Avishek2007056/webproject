@@ -26,9 +26,11 @@
                     <ul class="nav">
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="{{url('explore')}}">Order Books</a></li>
-                        <li><a href="details.html">Item Details</a></li>
+
                         
-                        <li><a href="create.html">Create Yours</a></li>
+                        <li><a href="details.html">Book Details</a></li>
+                        
+                        <!-- <li><a href="create.html">Create Yours</a></li> -->
 
                         @if (Route::has('login'))
                             <nav class="-mx-3 flex flex-1 justify-end">
