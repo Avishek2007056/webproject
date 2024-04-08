@@ -33,6 +33,32 @@
             </ul>
           </div>
         </div>
+
+        <form action="{{url('search')}}" method="get">
+          @csrf
+
+        <div class="row" style="margin: 30px;">
+          
+            <div class="col-md-8">
+              <input class="form-control" type="search" name="search" placeholder="Search for Your Favourite Book , Author">
+            </div>
+            <div class="col-md-4">
+              <input class="btn btn-info" type="submit" value="Search">
+            </div>
+
+
+
+
+
+          
+        </div>
+        </form>
+
+
+
+
+
+
         <div class="col-lg-12">
           <div class="row grid">
 

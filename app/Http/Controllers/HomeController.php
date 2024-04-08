@@ -91,6 +91,15 @@ class HomeController extends Controller
         return view('home.explore',compact('data'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        $data = Book::where('title','LIKE','%'.$search.'%')->orwhere('author_name','LIKE','%'.$search.'%')->get();
+
+        return view('home.explore',compact('data'));
+        
+    }
+
 
 
 }
