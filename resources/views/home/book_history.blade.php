@@ -52,12 +52,22 @@
   <div class="currently-market">
     <div class="container">
       <div class="row">
+
+      @if(session()->has('message'))
+      <div style="margin-top: 100px;" class="alert alert-success">
+        {{session()->get('message')}}
+        <button type="button" class="close" aria-hidden="true" data-bs-dismiss="alert">x</button>
+
+      </div> 
+      @endif
+
         <table class="table_deg">
             <tr>
                 <th>Book Name</th>
                 <th>Book Author</th>
                 <th>Order Status</th>
                 <th>Book Image</th>
+                <th>Cancel Order Request</th>
             </tr>
 
             @foreach($data as $data)
@@ -70,6 +80,16 @@
                     <img class="book_img" src="book/{{$data->book->book_img}}">
 
 
+                </td>
+                <td>
+                  @if($data->status == 'Applied')
+
+
+                  <a href="{{url('cancel_req',$data->id)}}" class="btn btn-warning">Cancel</a>
+                  @else 
+                   <p style="color: white; font-weight: bold;">Can not cancel Order Request</p>
+
+                  @endif
                 </td>
             </tr>
 

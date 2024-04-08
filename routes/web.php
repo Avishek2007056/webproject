@@ -21,7 +21,7 @@ route::get('/',[HomeController::class,'index']);
 
 Route::group(['middleware'=>'guest'],function(){
     Route::get('login',[AuthController::class,'index'])->name('login');
-    Route::post('login',[AuthController::class,'login'])->name('login')->middleware('throttle:2,1');
+    Route::post('login',[AuthController::class,'login'])->name('login');
 
     Route::get('register',[AuthController::class,'register_view'])->name('register');
     Route::post('register',[AuthController::class,'register'])->name('register')->middleware('throttle:2,1');
@@ -63,6 +63,8 @@ route::get('/accept_book/{id}',[AuthController::class,'accept_book']);
 route::get('/rejected_book/{id}',[AuthController::class,'rejected_book']);
 
 route::get('/book_history',[HomeController::class,'book_history']);
+
+route::get('/cancel_req/{id}',[HomeController::class,'cancel_req']);
 
 
 

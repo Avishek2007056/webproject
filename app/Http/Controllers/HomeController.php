@@ -77,11 +77,12 @@ class HomeController extends Controller
 
     }
 
-
-
-
-
-
+    public function cancel_req($id)
+    {
+        $data = Order::find($id);
+        $data->delete();
+        return redirect()->back()->with('message','Order Request Canceled');
+    }
 
 
 
