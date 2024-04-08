@@ -84,6 +84,13 @@ class HomeController extends Controller
         return redirect()->back()->with('message','Order Request Canceled');
     }
 
+    public function explore()
+    {
+
+        $data = Book::all();
+        return view('home.explore',compact('data'));
+    }
+
 
 
 }
