@@ -33,7 +33,14 @@ class AuthController extends Controller
                 $user_type =Auth()->user()->usertype;
                 if($user_type == 'admin')
                 {
-                  return view('admin.index');
+                    $user = User::all()->count();
+                    $book = Book::all()->count();
+                    $accept = Order::where('status','accepted')->count();
+                    $reject = Order::where('status','rejected')->count();
+
+
+
+                  return view('admin.index',compact('user','book','accept','reject'));
                 }
                 else if($user_type == 'user')
                 {
