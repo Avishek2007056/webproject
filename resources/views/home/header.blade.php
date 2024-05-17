@@ -37,7 +37,7 @@
                                 @auth
                                 
                                 <li>
-                                    <a href="{{url('book_history')}}">My Order History</a>
+                                    <a href="{{url('book_history')}}">My Orders</a>
                                 </li>
 
                                 <li>

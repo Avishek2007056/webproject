@@ -3,16 +3,14 @@
   <head> 
     @include('admin.css')
     <style type="text/css">
-        .center 
-        {
+        .center {
             text-align: center;
             margin: auto;
             width: 80%;
             border: 1px solid white;
             margin-top: 40px;
         }
-        th 
-        {
+        th {
             background-color: skyblue;
             text-align: center;
             color: white;
@@ -20,15 +18,7 @@
             font-weight: bold;
             padding: 10px;
         }
-
-
-
     </style>
-
-
-
-
-
   </head>
   <body>
     @include('admin.header')
@@ -36,7 +26,6 @@
       <!-- Sidebar Navigation-->
       @include('admin.sidebar')
       <!-- Sidebar Navigation end-->
-
 
       <div class="page-content">
         <div class="page-header">
@@ -47,56 +36,49 @@
                     <th>Email</th>
                     <th>Book Title</th>
                     <th>Quantity</th>
+                    <th>Price</th>
                     <th>Order Status</th>
                     <th>Book Image</th>
                     <th>Change Status</th>
                 </tr>
 
-                @foreach($data as $data)
-
+                @foreach($data as $order)
                 <tr>
-                    <td>{{$data->user->name}}</td>
-                    <td>{{$data->user->email}}</td>
-                    <td>{{$data->book->title}}</td>
-                    <td>{{$data->book->quantity}}</td>
+                    <td>{{$order->user->name}}</td>
+                    <td>{{$order->user->email}}</td>
+                    <td>{{$order->book->title}}</td>
+                    <td>{{$order->book->quantity}}</td>
+                    <td>{{$order->book->price}}</td>
                     <td>
-                      @if($data->status == 'accepted')
-                      <span style="color: green;">{{$data->status}}</span>
-                      @endif
-
-                      @if($data->status == 'rejected')
-                      <span style="color: red;">{{$data->status}}</span>
-                      @endif
-
-                      @if($data->status == 'Applied')
-                      <span style="color: yellow;">{{$data->status}}</span>
+                      @if($order->status == 'accepted')
+                      <span style="color: green;">{{$order->status}}</span>
+                      @elseif($order->status == 'rejected')
+                      <span style="color: red;">{{$order->status}}</span>
+                      @elseif($order->status == 'Applied')
+                      <span style="color: yellow;">{{$order->status}}</span>
                       @endif
                     </td>
                     <td>
-                        <img style="height: 150px; width: 110px" src="book/{{$data->book->book_img}}">
+                        <img style="height: 150px; width: 110px" src="book/{{$order->book->book_img}}">
                     </td>
                     <td>
-                      <a class="btn btn-warning" href="{{url('accept_book',$data->id)}}">Accepted</a>
-                      <a class="btn btn-danger" href="{{url('rejected_book',$data->id)}}">Rejected</a>
-                      <!-- <a class="btn btn-info" href="">Returned</a> -->
+                      @if($order->status == 'Applied')
+                      <a class="btn btn-warning" href="{{url('accept_book',$order->id)}}">Accept</a>
+                      </br>
+                      </br>
+                      <a class="btn btn-danger" href="{{url('rejected_book',$order->id)}}">Reject</a>
+                      @else
+                      <span>Status already set</span>
+                      @endif
                     </td>
                 </tr>
-
                 @endforeach
 
             </table>
-
-
-
-
           </div>
         </div>
       </div>
 
-
-
-
-     
-       @include('admin.footer')
+      @include('admin.footer')
   </body>
 </html>

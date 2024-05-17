@@ -35,6 +35,12 @@
             width: 80px;
             margin: auto;
         }
+        .order_value
+        {
+          text-align : center;
+          margin-bottom : 70px;
+          padding : 18px;
+        }
 
 
 
@@ -65,16 +71,24 @@
             <tr>
                 <th>Book Name</th>
                 <th>Book Author</th>
+                <th>Price</th>
                 <th>Order Status</th>
                 <th>Book Image</th>
                 <th>Cancel Order Request</th>
             </tr>
+
+            <?php
+
+            $value=0;
+
+            ?>
 
             @foreach($data as $data)
 
             <tr>
                 <td>{{$data->book->title}}</td>
                 <td>{{$data->book->author_name}}</td>
+                <td>{{$data->book->price}}</td>
                 <td>{{$data->status}}</td>
                 <td>
                     <img class="book_img" src="book/{{$data->book->book_img}}">
@@ -93,6 +107,15 @@
                 </td>
             </tr>
 
+            <?php
+                    if($data->status == 'accepted' && is_numeric($data->book->price)) {
+                        $value += $data->book->price;
+                    }
+            ?>
+
+            
+
+
             @endforeach
 
 
@@ -101,6 +124,12 @@
 
 
       </div>
+
+      <div class = "order_value">
+        <h3>Total Price is : {{$value}} tk</h3>
+      </div>
+
+
     </div>
   </div>
 
