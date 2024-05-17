@@ -67,10 +67,18 @@ route::get('/book_history',[HomeController::class,'book_history']);
 route::get('/cancel_req/{id}',[HomeController::class,'cancel_req']);
 
 route::get('/explore',[HomeController::class,'explore']);
+route::get('/details',[HomeController::class,'details']);
+route::get('/index',[HomeController::class,'index']);
 
 route::get('/search',[HomeController::class,'search']);
 
 route::get('/cat_search/{id}',[HomeController::class,'cat_search']);
+route::get('/cat_search',[HomeController::class,'cat_search']);
+
+
+
+
+
 
 
 

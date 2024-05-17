@@ -22,14 +22,14 @@
         <div class="col-lg-6 align-self-center">
           <div class="header-text">
             <h6>Book is the Greatest Friend</h6>
-            <h2>Welcome To My Online Book Shop !</h2>
+            <h2>Welcome To Book Ordering Website !</h2>
             <p>Library is a really cool and professional design for your websites. This HTML CSS template is based on Bootstrap v5 and it is designed for related web portals. Liberty can be freely downloaded from github</p>
             <div class="buttons">
               <div class="border-button">
-                <a href="explore.html">Top Rated Books</a>
+                <a href="{{url('explore')}}">Order Top Rated Books</a>
               </div>
-              <div class="main-button">
-                <a href="" target="_blank">More Details</a>
+              <div class="border-button">
+                <a href="{{url('details')}}">More Book Details</a>
               </div>
             </div>
           </div>

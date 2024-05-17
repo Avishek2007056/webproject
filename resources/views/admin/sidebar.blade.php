@@ -20,10 +20,10 @@
                   </ul>
                 </li>
                 <li><a href="{{url('order_request')}}"> <i class="icon-logout"></i>Order Request </a></li>
-        </ul><span class="heading">Extras</span>
-        <ul class="list-unstyled">
+        <!-- </ul><span class="heading">Extras</span> -->
+        <!-- <ul class="list-unstyled">
           <li> <a href="#"> <i class="icon-settings"></i>Demo </a></li>
           <li> <a href="#"> <i class="icon-writing-whiteboard"></i>Demo </a></li>
           <li> <a href="#"> <i class="icon-chart"></i>Demo </a></li>
-        </ul>
+        </ul> -->
       </nav>

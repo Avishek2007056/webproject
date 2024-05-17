@@ -24,11 +24,11 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="{{url('index')}}" class="active">Home</a></li>
                         <li><a href="{{url('explore')}}">Order Books</a></li>
 
                         
-                        <li><a href="details.html">Book Details</a></li>
+                        <li><a href="{{url('details')}}">Book Details</a></li>
                         
                         <!-- <li><a href="create.html">Create Yours</a></li> -->
 

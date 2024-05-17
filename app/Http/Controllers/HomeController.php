@@ -92,6 +92,11 @@ class HomeController extends Controller
         $data = Book::all();
         return view('home.explore',compact('data','category'));
     }
+    public function details()
+    {
+        $data = Book::all();
+        return view('home.details',compact('data'));
+    }
 
     public function search(Request $request)
     {
