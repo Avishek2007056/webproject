@@ -54,7 +54,7 @@
                   <div class="icon">
                     <img src="assets/images/icons8-unicorn.gif" alt="">
                   </div>
-                  <h4>Mythology</h4>
+                  <h4>Drama</h4>
                   
                 </div>
               </div>

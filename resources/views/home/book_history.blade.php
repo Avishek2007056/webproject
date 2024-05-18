@@ -99,7 +99,7 @@
                   @if($data->status == 'Applied')
 
 
-                  <a href="{{url('cancel_req',$data->id)}}" class="btn btn-warning">Cancel</a>
+                  <a href="{{url('cancel_req',$data->id)}}" class="btn btn-warning">Cancel Order</a>
                   @else 
                    <p style="color: white; font-weight: bold;">Can not cancel Order Request</p>
 

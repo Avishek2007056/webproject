@@ -8,6 +8,8 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
+use Notification;
+use App\Notifications\SendEmailNotification;
 
 
 class AuthController extends Controller
@@ -47,13 +49,14 @@ class AuthController extends Controller
                     $data = Book::all();
 
                 
-                    return view('home.index',compact('data'));
+                    return redirect()->route('index');
                 }
 
             }
             else 
             {
-                return redirect()->back();
+                dd($request);
+                return redirect()->back()->with('error','abc');
             }
 
             // $user_type =Auth()->user()->usertype;
@@ -82,22 +85,29 @@ class AuthController extends Controller
         $request->validate([
             'name'=>'required',
             'email' => 'required|unique:users|email',
-            'password'=>'required|confirmed'
+            'password'=>'required|confirmed',
+            'usertype' => 'required',
         ]);
 
         // save in users table 
         
-        User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=> \Hash::make($request->password), 
-            'usertype' => 'user',
-        ]);
+        // User::create([
+        //     'name'=>$request->name,
+        //     'email'=>$request->email,
+        //     'password'=> \Hash::make($request->password), 
+        //     //'usertype' => $request->usertype,
+        // ]);
+            $user=new User();
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->password=\Hash::make($request->password);
+            $user->usertype='user';
+            $user->save();
 
         // login user here 
         
         if(\Auth::attempt($request->only('email','password'))){
-            return redirect('home');
+            return redirect()->route('index');
         }
 
         return redirect('register')->withError('Error');
@@ -108,7 +118,7 @@ class AuthController extends Controller
 
 
     public function home(){
-        return view('home');
+        return view('auth.login');
     }
 
      public function logout(){
@@ -279,6 +289,31 @@ class AuthController extends Controller
         $data = Order::find($id);
         $data->status = 'rejected';
         $data->save();
+        return redirect()->back();
+    }
+
+    public function send_email($id)
+    {
+        $order = order::find($id);
+        return view('admin.email_info',compact('order'));
+    }
+
+    public function send_user_email(Request $request , $id)
+    {
+        $order = order::find($id);
+
+        $details = [
+            'greeting' => $request->greeting,
+            'firstline' => $request->firstline,
+            'body' => $request->body,
+            'button' => $request->button,
+            'url' => $request->url,
+            'lastline' => $request->lastline,
+
+
+        ];
+
+        Notification::send($order,new SendEmailNotification($details));
         return redirect()->back();
     }
 

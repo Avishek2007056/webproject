@@ -23,7 +23,7 @@
           <div class="header-text">
             <h6>Book is the Greatest Friend</h6>
             <h2>Welcome To Book Ordering Website !</h2>
-            <p>Library is a really cool and professional design for your websites. This HTML CSS template is based on Bootstrap v5 and it is designed for related web portals. Liberty can be freely downloaded from github</p>
+            <p>A book ordering website allows users to browse, select, and purchase books online with ease. It provides features like user reviews, detailed book descriptions to enhance the shopping experience.</p>
             <div class="buttons">
               <div class="border-button">
                 <a href="{{url('explore')}}">Order Top Rated Books</a>

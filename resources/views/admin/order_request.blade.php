@@ -40,6 +40,7 @@
                     <th>Order Status</th>
                     <th>Book Image</th>
                     <th>Change Status</th>
+                    <th>Send Email</th>
                 </tr>
 
                 @foreach($data as $order)
@@ -70,6 +71,9 @@
                       @else
                       <span>Status already set</span>
                       @endif
+                    </td>
+                    <td>
+                      <a href="{{url('send_email',$order->id)}}" class="btn btn-info">Send Email</a>
                     </td>
                 </tr>
                 @endforeach

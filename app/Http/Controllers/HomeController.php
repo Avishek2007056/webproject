@@ -35,7 +35,7 @@ class HomeController extends Controller
         
         if($quantity>='1')
         {
-            if(Auth::id())
+            if(Auth::check())
             {
                 $user_id = Auth::user()->id;
                 $order = new Order;

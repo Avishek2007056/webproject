@@ -68,12 +68,17 @@ route::get('/cancel_req/{id}',[HomeController::class,'cancel_req']);
 
 route::get('/explore',[HomeController::class,'explore']);
 route::get('/details',[HomeController::class,'details']);
-route::get('/index',[HomeController::class,'index']);
+route::get('/index',[HomeController::class,'index'])->name('index');
 
 route::get('/search',[HomeController::class,'search']);
 
 route::get('/cat_search/{id}',[HomeController::class,'cat_search']);
 route::get('/cat_search',[HomeController::class,'cat_search']);
+
+route::get('/send_email/{id}',[AuthController::class,'send_email']);
+
+route::post('/send_user_email/{id}',[AuthController::class,'send_user_email']);
+
 
 
 

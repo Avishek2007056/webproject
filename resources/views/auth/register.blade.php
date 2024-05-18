@@ -17,6 +17,7 @@
                         <form action="{{ route('register') }}" method="post">
                             @csrf
                             @method('post')
+                            <input type="text" hidden name='usertype' value='user'>
                             <div class="form-group">
                                 <label>Name</label>
                                 <input type="text" name="name" class="form-control" placeholder="name" />
