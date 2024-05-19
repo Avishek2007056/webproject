@@ -24,6 +24,16 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
+          <div>
+                    @if(session()->has('message'))
+                    <div class="alert alert-success">
+                       {{session()->get('message')}}
+
+                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    </div>   
+                    @endif
+
+                </div>
             <h1 style="text-align : center; font-size : 20px;">Send Email to {{$order->user->email}}</h1>
 
             <form action="{{url('send_user_email',$order->id)}}" method="POST">

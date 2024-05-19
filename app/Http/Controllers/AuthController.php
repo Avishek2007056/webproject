@@ -314,7 +314,7 @@ class AuthController extends Controller
         ];
 
         Notification::send($order,new SendEmailNotification($details));
-        return redirect()->back();
+        return redirect()->back()->with('message','Email Sent is Successfull');
     }
 
     

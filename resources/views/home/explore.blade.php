@@ -15,6 +15,17 @@
   <div class="currently-market">
     <div class="container">
       <div class="row">
+      <div>
+                    @if(session()->has('message'))
+                    <div class="alert alert-success">
+                       {{session()->get('message')}}
+
+                       <button type="button" class="close" aria-hidden="true" data-bs-dismiss="alert">x</button>
+                    </div>   
+                    @endif
+
+      </div>
+        
         
 
         

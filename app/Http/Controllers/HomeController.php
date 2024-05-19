@@ -58,7 +58,7 @@ class HomeController extends Controller
         }
         else 
         {
-            return redirect()->back()->with('message','Can not Order' );
+            return redirect()->back()->with('message','Can not Order , No Copy Available' );
 
         }
 
