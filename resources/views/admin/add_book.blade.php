@@ -41,6 +41,13 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
+          @if(session()->has('message'))
+                    <div class="alert alert-success">
+                       {{session()->get('message')}}
+
+                       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                    </div>   
+          @endif
             <div class="div_center">
                 <h1 class="title_deg">Add Books</h1>
                 <form action= "{{url('store_book')}}" method="Post" enctype="multipart/form-data">

@@ -10,6 +10,13 @@
             border: 1px solid white;
             margin-top: 40px;
         }
+        .div_deg 
+        {
+          display : flex;
+          justify-content : center;
+          align-items : center;
+          margin-top : 60px;
+        }
         th {
             background-color: skyblue;
             text-align: center;
@@ -79,9 +86,18 @@
                 @endforeach
 
             </table>
+            
+
+
+          </div>
+          <div class="div_deg">
+
+            {{$data->links()}}
           </div>
         </div>
+        <!-- {{$data->links()}} -->
       </div>
+      <!-- {{$data->links()}} -->
 
       @include('admin.footer')
   </body>

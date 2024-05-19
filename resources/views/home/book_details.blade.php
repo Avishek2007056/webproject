@@ -17,7 +17,7 @@
         <div class="col-lg-6">
           <div class="section-heading">
             <div class="line-dec"></div>
-            <h2><em>Items</em> Currently In The Market.</h2>
+            <h2><em>Books</em> Currently Available.</h2>
           </div>
         </div>
         <div class="col-lg-6">

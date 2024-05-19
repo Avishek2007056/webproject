@@ -197,7 +197,7 @@ class AuthController extends Controller
 
 
         $data->save();
-        return redirect()->back();
+        return redirect()->back()->with('message','Book Added Successfully');
     }
 
     public function show_book()
@@ -250,7 +250,7 @@ class AuthController extends Controller
     public function order_request()
     {
 
-        $data = Order::all();
+        $data = Order::paginate(4);
         return view('admin.order_request',compact('data'));
 
     }
