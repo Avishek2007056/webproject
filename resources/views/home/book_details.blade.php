@@ -22,12 +22,12 @@
         </div>
         <div class="col-lg-6">
           <div class="filters">
-            <ul>
+            <!-- <ul>
               <li data-filter="*"  class="active">All Books</li>
               <li data-filter=".msc">Popular</li>
               <li data-filter=".dig">Latest</li>
               
-            </ul>
+            </ul> -->
           </div>
         </div>
         <div class="col-lg-12">

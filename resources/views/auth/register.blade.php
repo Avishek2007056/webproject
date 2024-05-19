@@ -48,9 +48,9 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-8 text-left">
+                                <!-- <div class="col-8 text-left">
                                     <a href="#" class="btn btn-link">Forgot Password</a>
-                                </div>
+                                </div> -->
                                 <div class="col-4 text-right">
                                     <input type="submit" class="btn btn-primary" value=" Register " />
                                 </div>
