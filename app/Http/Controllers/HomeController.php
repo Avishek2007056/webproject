@@ -8,6 +8,8 @@ use App\Models\Order;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Session;
+use Stripe;
 
 class HomeController extends Controller
 {
@@ -114,6 +116,28 @@ class HomeController extends Controller
         $data = Book::where('category_id',$id)->get();
         return view('home.explore',compact('data','category'));
 
+    }
+
+    public function stripe($value)
+    {
+        return view('home.stripe',compact('value'));
+    }
+
+
+    public function stripePost(Request $request,$value)
+    {
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+        Stripe\Charge::create ([
+                "amount" => $value * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Thanks for Payment." 
+        ]);
+      
+        Session::flash('success', 'Payment successful!');
+              
+        return back();
     }
 
 

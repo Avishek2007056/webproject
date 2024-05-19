@@ -250,7 +250,7 @@ class AuthController extends Controller
     public function order_request()
     {
 
-        $data = Order::paginate(4);
+        $data = Order::paginate(3);
         return view('admin.order_request',compact('data'));
 
     }
@@ -309,13 +309,13 @@ class AuthController extends Controller
             'button' => $request->button,
             'url' => $request->url,
             'lastline' => $request->lastline,
-
-
         ];
 
         Notification::send($order,new SendEmailNotification($details));
         return redirect()->back()->with('message','Email Sent is Successfull');
     }
+
+    
 
     
 }

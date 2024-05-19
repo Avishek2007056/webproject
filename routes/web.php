@@ -80,6 +80,15 @@ route::get('/send_email/{id}',[AuthController::class,'send_email']);
 route::post('/send_user_email/{id}',[AuthController::class,'send_user_email']);
 
 
+route::get('/stripe/{value}',[HomeController::class,'stripe']);
+Route::post('stripe/{value}', [HomeController::class, 'stripePost'])->name('stripe.post');
+
+
+
+
+
+
+
 
 
 

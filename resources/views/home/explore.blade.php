@@ -59,7 +59,8 @@
               <input class="form-control" type="search" name="search" placeholder="Search for Your Favourite Book , Author">
             </div>
             <div class="col-md-4">
-              <input class="btn btn-info" type="submit" value="Search">
+              <input class="btn btn-info" type="submit" value="Search" style="border-radius: 50px;">
+
             </div>
 
 
@@ -109,7 +110,8 @@
                   </br>
 
                   <div class="">
-                    <a class="btn btn-primary" href="{{url('order_books',$data->id)}}">Order Now</a>
+                    <a class="btn btn-primary" href="{{ url('order_books', $data->id) }}" style="border-radius: 50px;">Order Now</a>
+
                   </div>
 
 

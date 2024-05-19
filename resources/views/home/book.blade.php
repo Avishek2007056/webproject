@@ -49,12 +49,16 @@
                   </span>
                   
                   <div class="text-button">
-                    <a href="{{url('book_details',$data->id)}}">View Book Details</a>
+                    <a href="{{ url('book_details', $data->id) }}" class="btn btn-success" style="color: black; border-radius: 50px;">View Book Details</a>
+
+
+
                   </div>
                   </br>
 
                   <div class="">
-                    <a class="btn btn-primary" href="{{url('order_books',$data->id)}}">Order Now</a>
+                   <a class="btn btn-primary" href="{{ url('order_books', $data->id) }}" style="border-radius: 50px;">Order Now</a>
+
                   </div>
 
 
